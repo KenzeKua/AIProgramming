@@ -12,7 +12,7 @@ public class Pixel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        objectSR = this.gameObject.GetComponent<SpriteRenderer>();
+        objectSR = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -20,21 +20,11 @@ public class Pixel : MonoBehaviour
     {
     }
 
-    private void OnMouseOver()
+    private void OnMouseDown()
     {
-        if (Input.GetMouseButton(0))
+        if (!isStart && !isEnd)
         {
-            if (!isStart && !isEnd)
-            {
-                if (isObstacle)
-                {
-                    isObstacle = false;
-                }
-                else if (!isObstacle)
-                {
-                    isObstacle = true;
-                }
-            }
+            isObstacle = !isObstacle;
         }
     }
 

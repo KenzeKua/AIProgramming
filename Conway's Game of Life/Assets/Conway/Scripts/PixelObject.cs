@@ -10,7 +10,7 @@ public class PixelObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        objectColour = this.gameObject.GetComponent<SpriteRenderer>().color;
+        objectColour = gameObject.GetComponent<SpriteRenderer>().color;
     }
 
     // Update is called once per frame
@@ -19,28 +19,18 @@ public class PixelObject : MonoBehaviour
         if (isAlive)
         {
             objectColour.a = 1f;
-            this.gameObject.GetComponent<SpriteRenderer>().color = objectColour;
+            gameObject.GetComponent<SpriteRenderer>().color = objectColour;
         }
         else if (!isAlive)
         {
             objectColour.a = 0f;
-            this.gameObject.GetComponent<SpriteRenderer>().color = objectColour;
+            gameObject.GetComponent<SpriteRenderer>().color = objectColour;
         }
     }
 
-    private void OnMouseOver()
+    private void OnMouseDown()
     {
-        if (Input.GetMouseButton(0))
-        {
-            if (isAlive)
-            {
-                isAlive = false;
-            }
-            else if (!isAlive)
-            {
-                isAlive = true;
-            }
-        }
+        isAlive = !isAlive;
     }
 
     public bool GetBool()
